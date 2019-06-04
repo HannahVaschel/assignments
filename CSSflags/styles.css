@@ -1,0 +1,36 @@
+h1 {
+    margin-bottom: 0px;
+}
+
+#french-flag {
+    width: 300px;
+    height: 250px;
+    border: 1px solid black;
+    position: relative;
+    margin: 5px;
+}
+
+#french-blue {
+    width: 100px;
+    background-color: blue;
+    height: 250px;
+    position: absolute;
+}
+
+#french-red {
+    position: absolute;
+    width: 100px;
+    background-color: firebrick;
+    height: 250px;
+    top: 0;
+    left: 200px;
+
+}
+
+#german-flag {
+    width: 300px;
+    height: 250px;
+    border: 1px solid black;
+    position: relative;
+    margin: 5px;
+}

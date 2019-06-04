@@ -1,0 +1,45 @@
+html, body {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 16px;
+        margin-right: 50px;
+        margin-left: 50px;
+}
+
+img { 
+    float: left;
+    padding: 10px;
+    width: 250px;
+    height: 250px;
+}
+
+.clear {
+    clear: both;
+}
+
+h1 {
+    color: darkgreen;
+}
+
+.embolden {
+    font-weight: bold;
+}
+
+.headlines {
+    text-align: center;
+}
+
+p {
+    line-height: 25px;
+}
+
+.caps {
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

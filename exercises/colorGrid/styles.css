@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    font-size: 0px
+}
+
+.pink {
+    background-color: #F5C6D6;
+    border: 7px solid white;
+    height: 150px;
+
+}
+
+ .darkPink {
+    background-color: #EE2E84;
+    border: 7px solid white;
+    height: 150px;
+    width: 25%;
+    display: inline-block;
+}
+
+.blue {
+    background-color: #85CFD8;
+    border: 7px solid white;
+    height: 150px;
+    width: 50%;
+    display: inline-block;
+    
+}
+
+.green {
+    background-color: #8DC63F;
+    border: 7px solid white;
+    height: 150px;
+    width: 75%;
+    display: inline-block;
+
+}
+
+.orange {
+    background-color: #E76E34;
+    border: 7px solid white;
+    height: 150px;
+    width: 25%;
+    display: inline-block;
+
+}

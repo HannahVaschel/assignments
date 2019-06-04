@@ -1,0 +1,103 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3em;
+}
+
+#throughLine {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+    display: inline-block;
+    width: 33%;
+}
+
+.center {
+    text-align: center;
+    display: inline-block;
+    width: 33%;
+}
+
+.right {
+    text-align: right;
+    display: inline-block;
+    width: 33%;
+}
+
+h5 {
+    margin-bottom: 0px;
+    
+}
+
+.quoted {
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+#confit {
+    width: 200px;
+    height: auto;
+    padding-right: 10px;
+    float: both;   
+     
+}
+
+.inblock {
+    display: inline-block;
+    width: 200px;
+    padding: 3px;
+}
+
+.inblockClear {
+    display: inline-block;
+    clear: left;
+    width: 200px;
+}
+
+.smallSpace {
+    size: 1px;
+}
+
+.pigContent {
+    display: inline-block;
+    position: relative;
+    bottom: 10px;
+}
+
+#aboutPigs {
+    display: inline-block;
+    text-align: left;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.red {
+   color: firebrick;
+}
+
+.blue {
+    color: blue;
+}
+
+#aboutFish {
+    display: inline-block;
+}
+
+#notAMailBox {
+    width: 400px;
+    height: auto;
+    float: bottom;
+}
