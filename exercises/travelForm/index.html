@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plan Your Trip</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <h3>Passenger Information</h3>
+    <form name="travelForm">
+        <p class="p-name">Name</p>
+        <input type="text" name="firstName" placeholder="First Name" class="name-input">
+        <input type="text" name="lastName" placeholder="Last Name" class="name-input">
+        
+        <p class="p-age">Age</p>
+        <input type="number" name="ageInput" placeholder="Age"class="user-age">
+
+        <p class="p-gender-title">Gender</p>
+        <input type="radio" name="genderInput" value="male" class="user-gender"> <p class="p-gender">Male</p>
+        <input type="radio" name="genderInput" value="female" class="user-gender"> <p class="p-gender">Female</p>
+        <input type="radio" name="genderInput" value="Nonbinary" class="user-gender"> <p class="p-gender">Nonbinary</p> 
+        
+        <p class="p-destination">Destination</p>
+        <select name="destinationInput">
+            <option value="Salt Lake City">Salt Lake City</option>
+            <option value="Indianapolis">Indianapolis</option>
+            <option value="Detroit">Detroit</option>
+        </select>
+
+        <p>Dietary Restrictions</p>
+        <input type="checkbox" name="diets" value="Vegetarian"> Vegetarian
+        <input type="checkbox" name="diets" value="Vegan"> Vegan
+        <input type="checkbox" name="diets" value="Gluten Free"> Gluten Free 
+
+        <button>Book Trip</button>
+
+    </form>
+
+    <script src="./app.js"></script>
+</body>
+</html>

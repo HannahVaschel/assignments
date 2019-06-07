@@ -1,0 +1,64 @@
+h1 {
+    font-family: sans-serif;
+    font-size: 2em;
+}
+
+input {
+    border: 1px solid black;
+    margin: 20px 2px;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: right;
+    padding-right: 3px;
+}
+
+#addButton {
+    border: 1px solid white;
+    padding: 5px;
+    background-color: darkblue;
+    color: whitesmoke;
+    font-size: 1em
+}
+
+#subButton {
+    border: 1px solid white;
+    padding: 5px;
+    background-color: darkcyan;
+    color: whitesmoke;
+    font-size: 1em
+}
+
+#multButton {
+    border: 1px solid white;
+    padding: 5px;
+    background-color: darkorchid;
+    color: whitesmoke;
+    font-size: 1em
+}
+
+.add-in {
+    background-color: darkblue;
+    color: whitesmoke;
+}
+
+.sub-in {
+    background-color: darkcyan;
+    color: whitesmoke;
+
+}
+
+.mult-in{
+    background-color: darkorchid;
+    color: whitesmoke
+}
+span {
+    font-weight: lighter;
+    font-size: 1.5em;
+}
+
+.res-box {
+    border: 1px solid black;
+    display: inline-block;
+    margin-left: 20px;
+    padding: 3px 10px;
+}

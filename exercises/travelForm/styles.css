@@ -1,0 +1,21 @@
+p {
+    margin-bottom: 5px;
+}
+
+.user-age {
+    display: block;
+}
+
+.p-gender {
+    display: inline-block;
+    margin-top: 2px;
+}
+.user-gender {
+    display: inline-block;
+    margin-top: 2px;
+}
+
+button {
+    display: block;
+    margin: 10px;
+}

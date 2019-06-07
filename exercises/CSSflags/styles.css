@@ -1,0 +1,161 @@
+h1 {
+    margin-bottom: 0px;
+}
+
+/* France */
+#french-flag {
+    width: 300px;
+    height: 240px;
+    border: 1px solid black;
+    position: relative;
+    margin: 5px;
+}
+
+#french-blue {
+    width: 100px;
+    background-color: blue;
+    height: 240px;
+    position: absolute;
+}
+
+#french-red {
+    position: absolute;
+    width: 100px;
+    background-color: firebrick;
+    height: 240px;
+    top: 0;
+    left: 200px;
+
+}
+/* Germany */
+#german-flag {
+    width: 300px;
+    height: 240px;
+    border: 1px solid black;
+    position: relative;
+    margin: 5px;
+}
+.german-black {
+    width: 300px;
+    height: 80px;
+    background-color: black;
+    position: absolute;
+}
+.german-red {
+    width: 300px;
+    height: 80px;
+    background-color: firebrick;
+    position: absolute;
+    top: 80px;
+}
+.german-yellow {
+    width: 300px;
+    height: 80px;
+    background-color: goldenrod;
+    position: absolute;
+    top: 160px;
+}
+
+/* Madagascar */
+#madagascan-flag {
+    width: 300px;
+    height: 240px;
+    border: 1px solid black;
+    position: relative;
+    margin: 5px;
+}
+.madagascan-red {
+    width: 200px;
+    height: 120px;
+    background-color: firebrick;
+    position: absolute;
+    left: 100px;
+}
+.madagascan-green {
+    width: 200px;
+    height: 120px;
+    background-color: green;
+    position: absolute;
+    top: 120px;
+    left: 100px;
+}
+
+/* Switzerland */
+#swiss-flag {
+    width: 300px;
+    height: 240px;
+    border: 1px solid black;
+    position: relative;
+    margin: 5px;
+    background-color: red;
+}
+.swiss-vertical {
+    width: 60px;
+    height: 174px;
+    background-color: white;
+    position: absolute;
+    top: 32px;
+    left: 120px;
+}
+.swiss-horizontal {
+    width: 174px;
+    height: 60px;
+    background-color: white;
+    position: absolute;
+    top: 88px;
+    left: 62px;
+}
+
+/* Sweden */
+#swedish-flag {
+    width: 300px;
+    height: 240px;
+    border: 1px solid black;
+    position: relative;
+    margin: 5px;
+    background-color: rgb(38, 113, 226);
+}
+
+.swedish-vertical {
+    width: 60px;
+    height: 240px;
+    background-color: rgba(255, 255, 0, 1);
+    position: absolute;
+    left: 82px;
+}
+.swedish-horizontal {
+    width: 300px;
+    height: 60px;
+    background-color: rgba(255, 255, 0, 1);
+    position: absolute;
+    top: 88px;
+}
+
+/* Gambia */
+#gambian-flag {
+    width: 300px;
+    height: 240px;
+    border: 1px solid black;
+    position: relative;
+    margin: 5px;
+}
+.gambian-red {
+    width: 300px;
+    height: 80px;
+    background-color: firebrick;
+    position: absolute;
+}
+.gambian-blue {
+    width: 300px;
+    height: 50px;
+    background-color: navy;
+    position: absolute;
+    top: 95px;
+}
+.gambian-green {
+    width: 300px;
+    height: 80px;
+    background-color: green;
+    position: absolute;
+    top: 160px;
+}

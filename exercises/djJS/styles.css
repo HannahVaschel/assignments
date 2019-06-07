@@ -1,0 +1,16 @@
+
+
+.square-style {
+    border: 2px solid black;
+    display: block;
+    position: relative;
+    margin: auto;
+    margin-top: 50px;
+    width: 500px;
+    height: 500px;
+}
+
+.scrolly {
+    height: 500px;
+    width: 100px;
+}

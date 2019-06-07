@@ -132,7 +132,7 @@ for (i = 0; i < 3; i++) {
 
 // console.log(emptyMatrix)
 
-// ****** OR! just make sure your nested for loops have a different variable, and your original idea works.
+// ****** OR! just make sure your nested for loops have a different variable, and my original idea works:
   // Thanks Bob!
 
 var newMatrix = []

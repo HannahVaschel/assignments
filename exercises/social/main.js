@@ -51,7 +51,7 @@ var skater = {
 }
 
 skater.skatingStyles.push("park", "artistic")
-console.log(skater.skatingStyles)
+// console.log(skater.skatingStyles)
 
 skater.leagueMates[0].homeTeam = "Hot Wheelers"
 skater.leagueMates[0].height = "7 Feet Tall"

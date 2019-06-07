@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>forms</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <h1>Let's Do Some Math!</h1>
+    
+    <div id="grand-div">
+        <!-- addition -->
+        <form name="addForm">
+            <input type="number" name="num1" class="add-in"> 
+            <span>+</span>
+            <input type="number" name="num2" class="add-in"> 
+    
+            <button id="addButton">Click to Add</button>
+        </form>
+        <div id="add-result" class="res-box"></div>
+
+        <!-- subtraction -->
+        <form name="subForm">
+            <input type="number" name="num1" class="sub-in"> 
+            <span>–</span>
+            <input type="number" name="num2" class="sub-in"> 
+    
+            <button id="subButton">Click to Subtract</button>
+        </form>
+        <div id="sub-result" class="res-box"></div>
+
+        <!-- multiplication -->
+        <form name="multForm">
+            <input type="number" name="num1" class="mult-in">
+            <span>*</span>
+            <input type="number" name="num2" class="mult-in">
+
+            <button id="multButton">Click to Multiply</button>
+        </form>
+        <div id="mult-result" class="res-box"></div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

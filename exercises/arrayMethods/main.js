@@ -11,18 +11,16 @@ function differentSalads() {
     fruit.push(fruit.indexOf("orange"))
     vegetables.push(vegetables.length)
     food = fruit.concat(vegetables)
-    // food.splice(4, 2)
+    food.splice(4, 2)
     food.reverse()
     return(food.toString())
 
 
 }
 
-differentSalads()
 
-console.log("fruit: ", fruit)
-console.log("vegetables: ", vegetables)
-console.log("food: ", food)
+
+// console.log("fruit: ", fruit)
+// console.log("vegetables: ", vegetables)
+// console.log("food: ", food)
 console.log(differentSalads())
-
-//where does the 0 come from??
