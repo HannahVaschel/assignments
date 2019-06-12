@@ -25,7 +25,7 @@ function findCharacter(string, q) {
 
 // console.log(findCharacter(myString, "q"))
 
-const numberArray = [1, 2, 42, 3, 4, 5, 6, 7, 8, 9,]
+const numberArray = [22, 76, 17, 42, 3, 4, 5, 6, 7, 8, 9,]
 
 function find42(array) {
     for (let i = 0; i < array.length; i++) {
@@ -37,13 +37,21 @@ function find42(array) {
 
 // console.log(find42(numberArray))
 
-function findSmallestOf10(numArray) {
-    let smallest
-    for (let i = 0; i < 10; i++) {
-        for (let j = 0; j < 10; j++)
-            if (numArray[i] > numArray[j]) {
-                break
-            }
 
-    }
+function findSmallestOf10(numArray) {
+    let smallest 
+    let smallArray = []
+    for (let i = 0; i < 10; i++) {
+        let j = 0
+        for (j = 0; j < 10; j++) {
+            if (numArray[i] - numArray[j] > 0) {
+                break
+            } else  if (j === 9) {
+                smallest = numArray[i]
+            }
+        }
+    } 
+    return smallest
 }
+
+console.log(findSmallestOf10(numberArray))

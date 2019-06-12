@@ -1,0 +1,30 @@
+#div-team {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 10px 5px;
+    align-items: center;
+}
+
+#div-team > div {
+    width: 30vw;
+}
+
+.img-team {
+    width: 30vw;
+    height: auto;
+    border: 2px solid whitesmoke;
+}
+
+.p-team {
+    color: whitesmoke;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.about-blurb {
+    color: whitesmoke;
+    text-align: center;
+    width: 
+}

@@ -1,0 +1,180 @@
+
+
+@font-face {
+    font-family: mario-font;
+    src: url('./chlorinap/CHLORINP.TTF');
+}
+
+* {
+    font-family: sans-serif;
+    background-color: rgba(236, 234, 234, 0.219);
+    
+}
+
+header {
+    position: relative;
+    text-align: center;
+    height: 35vh;
+    top: 20px;
+}
+
+.img-header {
+    width: auto;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    background-color: inherit;
+}
+
+img {
+    background-color: inherit;
+}
+
+input {
+    text-align: right;
+    height: 25%;
+    width: auto;
+    margin-left: 10px;
+    background-color: white;
+    font-size: 2vh;
+    
+}
+
+.p-baddies {
+    font-family: mario-font;
+    font-size: 5vh;
+    background-color: inherit;
+}
+
+
+#flex-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#form-container > div {
+    height: 15vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    position: relative
+}
+
+#goomb-div {
+    background-color: #E52521;
+    margin-top: 0;
+}
+
+#bob-div {
+    background-color: #43B047;
+    
+}
+
+#cheep-div {
+    background-color: #FBD000;
+}
+
+.img-goom {
+    height: 75%;
+    width: auto;
+    
+}
+
+.img-bob {
+    height: 75%;
+    width: auto;
+}
+
+.img-cheep {
+    height: 75%;
+    width: auto;   
+}
+
+.img-coin {
+    height: 20%;
+    width: auto;
+    float: left;
+    position: absolute;
+    right: 8vw;     
+    bottom: 2vh;
+    padding: 2px;
+}
+
+.p-cost {
+    /* align-self: flex-end;
+    justify-self: flex-end; */
+    position: absolute;
+    right: 4vw;
+    bottom: 2vh;
+    margin: 3px;
+    background-color: inherit;
+    font-size: 2vh;
+}
+
+#invoice-div {
+    background-color: #049CD8;
+}
+
+
+#submit-btn {
+    height: 75%;
+    width: auto;
+    background-color: inherit;
+    margin-left: 20px;
+    padding: 0;
+    border: 0px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.img-submit {
+    height: 75%;
+    width: auto;
+    display: inline-block;
+}
+
+.p-submit {
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 1.5em;
+    display: inline-block;
+    height: 10%;
+    width: auto;
+    background-color: inherit;
+}
+
+.p-invoice {
+    margin: 10px;
+    height: 25%;
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span {
+    border: 1px solid lightgray;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    text-align: right;
+    padding: 10%;
+ 
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px;
+    margin: 5px;
+}

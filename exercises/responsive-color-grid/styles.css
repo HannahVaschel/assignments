@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    font-size: 0px
+}
+/* mobile */
+/* @media only screen and (max-width: 767px) { */
+#flex-container > div {
+    display: flex;
+    flex-direction: column;
+   
+}
+    .pink {
+        background-color: #F5C6D6;
+        border: 7px solid white;
+        height: 150px;
+    
+    }
+    
+     .darkPink {
+        background-color: #EE2E84;
+        border: 7px solid white;
+        height: 150px;
+    }
+    
+    .blue {
+        background-color: #85CFD8;
+        border: 7px solid white;
+        height: 150px;
+    }
+    
+    .green {
+        background-color: #8DC63F;
+        border: 7px solid white;
+        height: 150px;
+    }
+    
+    .orange {
+        background-color: #E76E34;
+        border: 7px solid white;
+        height: 150px;    
+    }
+/* } */
+
+/* desktop */
+@media only screen and (min-width: 768px) {
+
+    #flex-container > div {
+        display: flex;
+        flex-direction: row;
+    }
+.dark-pink-container {
+    height: 150px;
+    width: 100%;
+    
+    /* justify-content: center; */
+    /* align-items: space-evenly; */
+}
+    .darkPink {
+        width: 25%;
+        display: inline-block;
+        /* height: 100%; */
+    }
+
+    .blue {
+        width: 50%;
+        display: inline-block;
+        
+    }
+        
+    .green {
+        width: 75%;
+        display: inline-block;
+    }
+
+.green-container {
+    display: flex;
+    flex-direction: row;
+}
+
+    .orange {
+        width: 25%;
+        display: inline-block;
+    }
+}
+
+/* @media only screen and (max-width: 768px) {
+    
+     .darkPink {
+        width: 100%;
+        display: block;
+    }
+    
+    .blue {
+        width: 100%;
+        display: block;
+        
+    }
+    
+    .green {
+        width: 100%;
+        display: block;
+    
+    }
+    
+    .orange {
+        width: 100%;
+        display: block;
+    
+    }
+} */

@@ -5,22 +5,62 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <h1>Mario Bros. Pest Control</h1>
+    <header>
+        <img src="images/super-mario-logo.png" class="img-header">
+    </header>
+    
+    <div id="flex-container">
+        <form name="userForm" id="form-container">
+            <div id="goomb-div">
+                <img src="./images/goomba.png" class="img-goom" />
+                <p class="p-baddies">Goombas</p>
+                <input type="number" name="goombInput" value="0"> 
+               
+                <img src="./images/mario-coin.png" class="img-coin" />
+                <p class="p-cost" >x 5</p>
+                
+            </div>
+            
+            <div id="bob-div">
+                <img src="./images/Bob-omb.png" class="img-bob" />
+                <p class="p-baddies">Bob-ombs</p>
+                <input type="number" name="bobInput" value="0">
+                
+                <img src="./images/mario-coin.png" class="img-coin" />
+                <p class="p-cost" >x 7</p>
 
-    <form name="userForm">
-        <input type="number" name="goombInput" value="0"> Goombas
-        <input type="number" name="bobInput" value="0"> Bob-ombs
-        <input type="number" name="cheepInput" value="0"> Cheep-cheeps
+            </div>
+            
+            <div id="cheep-div">
+                <img src="./images/cheep.png" class="img-cheep" />
+                <p class="p-baddies">Cheep-cheeps</p>
+                <input type="number" name="cheepInput" value="0">
+                
+                <img src="./images/mario-coin.png" class="img-coin" />
+                <p class="p-cost" >x 11</p>
 
-        <button>Submit</button>
-    </form>
-
-    <div>
-        <p>
-            <span id="invoice"></span>
-        </p>
+            </div>
+            
+            
+            <div id="invoice-div">
+                <button id="submit-btn">
+                    <img src="./images/coin-block.png" class="img-submit"/>
+                    <p class="p-submit">Submit</p>
+                </button>
+                <p class="p-baddies">Total Coins Owed</p>
+                <p class="p-invoice">
+                    <span id="invoice"></span>
+                </p>
+            </div>
+            
+        </form>
     </div>
+    <footer>
+        <p>m.mario@mariobros.com</p>
+        <p>www.mariobrosplumbingandpests.com</p>
+        <p>100 Lakitu Lane, Toadstool District, Mushroom Kingdom</p>
 
+    </footer>
 
     <script src="./main.js"></script>
 </body>
