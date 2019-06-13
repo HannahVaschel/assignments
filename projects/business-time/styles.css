@@ -108,7 +108,7 @@ a {
 }
 
 .img-footer-social {
-    background-color: rgb(37, 91, 107);
+    background-color: rgb(37, 91, 107)
 }
 
 .div-social {
@@ -116,6 +116,11 @@ a {
 }
 
 .p-footer {
+    color: whitesmoke;
+    background-color: inherit;
+}
+
+.a-footer {
     color: whitesmoke;
     background-color: inherit;
 }
