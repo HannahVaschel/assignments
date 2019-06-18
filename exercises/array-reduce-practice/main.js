@@ -102,60 +102,37 @@ var voters = [
 ];
 
 function voterResults(arr) {
-   let voterObj = arr.reduce(function(obj, datum){
-        if (datum.age < 26){
-           if (!obj[youth]){
-               obj.youth = 1
-           } else {
-               obj.youth++
-           }
-           if(datum.voted === true){
-               if (!obj.youngVotes){
-                   obj.youngVotes = 1
-               } else {
-                   obj.youngVotes++
-               }
-           }
-       } else if (datum.age > 25 && datum.age < 36){
-            if(!obj.mids){
-                obj.mids = 1
-            } else {
-                obj.mids++
+    const resultObject = arr.reduce((final, voter) =>{
+        if(voter.age >= 18 && voter.age <= 25){
+            final.youth++
+            if(voter.voted){
+                final.youngVotes++
             }
-            if(datum.voted == true){
-                if(!obj.midVotes){
-                    obj.midVotes = 1
-                 } else {
-                    obj.midVotes++
-                }   
-           }
-        } else {
-            if (!obj.olds){
-                obj.olds = 1
-            } else {
-                obj.olds++
+        }
+        if(voter.age >= 26 && voter.age <= 35){
+            final.mids++
+            if(voter.voted){
+                final.midVotes++
             }
-            if (!obj.oldVotes){
-                obj.oldVotes = 1
-            } else{
-                obj.oldVotes++
+        }
+        if(voter.age >= 36 && voter.age <= 44){
+            final.olds++
+            if(voter.voted){
+                final.oldVotes++
             }
-       }
-    })
-    return obj
+        }  
+        return final
+    }, {
+        youngVotes: 0,
+        youth: 0,
+        midVotes: 0,
+        mids: 0,
+        oldVotes: 0,
+        olds: 0
+
+    },{})
+    return resultObject
 }
 
+
 console.log(voterResults(voters));
-
-
-// } else if (datum.age > 25 && datum.age < 36){
-//     voterObj.mids++
-//        if(datum.voted == true){
-//         voterObj.midVotes++
-//        }
-//    } else {
-//     voterObj.olds++
-//        if (datum.voted === true){
-//            voterObj.oldVotes++
-//        }
-//    }

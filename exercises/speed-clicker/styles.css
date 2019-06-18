@@ -1,0 +1,21 @@
+#clicker {
+    height: 50px;
+    width: 50px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+#countdown{
+    border: 2px solid black;
+    font-size: 20px;
+    height: auto;
+    width: 50px;
+    margin: 50px;
+    text-align: center;
+    padding: 10px;
+    
+}
+
+#display {
+    margin-left: 50px;
+}

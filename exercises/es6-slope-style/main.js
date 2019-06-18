@@ -8,17 +8,17 @@ function collectAnimals(...animals) {
 
 // 2
 function combineFruit(fruit, sweets, vegetables){
-    return {
-        fruit: arrays,
-    sweets: arrays,
-    vegetables: arrays
+     return {
+        fruit,
+      sweets,
+    vegetables
     }
 }
 
 // console.log(combineFruit(["apple", "pear"],
-            //  ["cake", "pie"],
-            //  ["carrot"]))
-/////Pretty confused about what's going on here, tbh
+//              ["cake", "pie"],
+//              ["carrot"]))
+
 
 // 3
 const vacation = {  
@@ -35,10 +35,10 @@ const vacation = {
 
 // 4
 function returnFirst(items){
-    const firstItem = item1
-    return firstItem
+  const [firstItem] = items
+  return firstItem
 }
-/////////Is this how this works?
+    
 
 //5.
 const favoriteActivities = ["magnets", "snowboarding", "philanthropy", "janitor work", "eating"];
@@ -82,4 +82,18 @@ const product = (a, b, c, d, e) => {
     // console.log(unshift(array, 'a', 'b', 'c', 'd', 'e'))
 
 
+
 // Double Black
+
+function populatePeople(names){
+  return names.map(function(name){
+      name = name.split(" ");
+      const [firstName, lastName] = name
+      return {
+          firstName: firstName,
+          lastName: lastName
+      }
+    }
+  )}
+
+console.log(populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"]))

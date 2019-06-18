@@ -32,9 +32,10 @@ runForLoop()
 const carrots = ["bright orange", "ripe", "rotten"]
 
 function mapVegetables(arr) {
-    return arr.map(carrot => carrot.type = "carrot", carrot.name = carrot )
+    arr.map(carrot =>  {carrot.type = "carrot", carrot.name = carrot })
+    return arr
 }
-// console.log(mapVegetables(carrots))
+console.log(mapVegetables(carrots))
 
 
 // 2.
