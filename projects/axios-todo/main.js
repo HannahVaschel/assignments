@@ -1,5 +1,4 @@
 const allTodos = document.getElementById("todo-container")
-// const checkboxDone = document.getElementsByName("check-done").checked
 
 function getTodos(){
     axios.get("https://api.vschool.io/hannahvaschel/todo")
@@ -31,15 +30,19 @@ function listTodos(arr){
                 checkDone.checked = true
             }
         const checkLabel = document.createElement('label')
-        const delBtn = document.createElement('button')
         const editBtn = document.createElement('button')
         const editImg = document.createElement('p')
-        // const editImgDiv =document.createElement('div')
+        const delBtn = document.createElement('button')
+
+        const checkDiv = document.createElement('div')
+        const btnDiv = document.createElement('div')
+        
     
 
     // Edit Elements
         title.textContent = arr[i].title
         description.textContent = arr[i].description
+        description.classList.add("grid-desc")
         todoDiv.classList.add("todo-div")
         todoImg.src= arr[i].imgUrl
         editImg.textContent = arr[i].imgUrl
@@ -49,14 +52,17 @@ function listTodos(arr){
         todoImg.classList.add("todo-img")
         checkDone.type = "checkbox"
         checkDone.name = "check-done"
+        checkDone.id = "checkbox"
         checkLabel.textContent = "Done"
         checkLabel.setAttribute("for", checkDone)
+        checkLabel.id = "check-label"
         delBtn.textContent = "Delete"
         editBtn.textContent = "Edit"
         editBtn.classList.add("edit-button")
         editImg.classList.add("hidden")
-        // editImgDiv.setAttribute("id", "hidden")
         
+        checkDiv.classList.add("check-div")
+        btnDiv.classList.add("btn-div")
         
 
     // Append to DOM
@@ -65,13 +71,20 @@ function listTodos(arr){
         if (todoImg.src= arr[i].imgUrl){
             todoDiv.appendChild(todoImg)
         }
-        todoDiv.appendChild(checkDone)
-        todoDiv.appendChild(checkLabel)
-        todoDiv.appendChild(delBtn)
-        todoDiv.appendChild(editBtn)
+        // todoDiv.appendChild(checkDone)
+        // todoDiv.appendChild(checkLabel)
+        // todoDiv.appendChild(editBtn)
         todoDiv.appendChild(editImg)
-        // todoDiv.appendChild(editImgDiv)
-        // editImgDiv.appendChild(editImg)
+        // todoDiv.appendChild(delBtn)
+        checkDiv.appendChild(checkDone)
+        checkDiv.appendChild(checkLabel)
+        btnDiv.appendChild(editBtn)
+        btnDiv.appendChild(delBtn)
+
+        todoDiv.appendChild(checkDiv)
+        todoDiv.appendChild(btnDiv)
+
+
         allTodos.appendChild(todoDiv)
 
 

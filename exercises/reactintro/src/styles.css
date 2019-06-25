@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+}
+
+.app-container {
+    border: 5px solid blue;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+}
+
+.navbar > a {
+    font-family: sans-serif;
+    text-decoration: none;
+    font-weight: lighter;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: lighter;
+}

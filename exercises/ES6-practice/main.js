@@ -29,12 +29,13 @@ runForLoop()
 // 1.
 //**** */STILL SUPER BROKEN
 
-const carrots = ["bright orange", "ripe", "rotten"]
+const carrots = ["bright orange", "ripe", "rotten",]
 
 function mapVegetables(arr) {
-    arr.map(carrot =>  {carrot.type = "carrot", carrot.name = carrot })
-    return arr
+    arr.map(carrot => `{ type: "carrot", name: ${carrot}}`)
+
 }
+
 console.log(mapVegetables(carrots))
 
 
