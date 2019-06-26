@@ -1,0 +1,28 @@
+@font-face {
+    font-family: faBrands;
+    src: url("https://blackrockdigital.github.io/startbootstrap-clean-blog/vendor/fontawesome-free/webfonts/fa-brands-400.woff2");
+}
+* {
+    margin: 0;
+    font-family: faBrands
+}
+
+.header-div {
+    background-image: url("https://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg");
+    height: 525px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    
+}
+
+.nav-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    
+    
+
+}

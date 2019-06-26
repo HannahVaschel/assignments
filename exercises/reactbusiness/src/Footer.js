@@ -3,7 +3,7 @@ import React from 'react'
 function Footer(){
     return (
         <div className="footer-div">
-            <p>contact us or something</p>
+            <p>Social Media Information Coming Soon!</p>
         </div>
     )
 }
