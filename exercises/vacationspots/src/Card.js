@@ -1,5 +1,4 @@
 import React from 'react'
-import { privateEncrypt } from 'crypto';
 
 function Card(props) {
     let borderColor 

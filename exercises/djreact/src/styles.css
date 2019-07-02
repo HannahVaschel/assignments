@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+}
+
+.square-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    
+}
+
+.header{
+    grid-column: 2 / 4;
+    grid-row: 1;
+    justify-self: center;
+}
+
+.square{
+    border: 1px solid black;
+    height: 200px;
+    width: 200px;
+}
+
+.square:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 2;
+}
+.square:nth-child(3) {
+    grid-column: 3 / 4;
+    grid-row: 2;
+
+}
+.square:nth-child(4) {
+    grid-column: 2 / 3;
+    grid-row: 3;
+}
+.square:nth-child(5) {
+    grid-column: 3 / 4;
+    grid-row: 3;
+}
+
+.controls {
+    grid-row: 4;
+    grid-column: 1 / 5;
+}
+
+button {
+    height: 70px;
+    width: 70px;
+}
+
+.btn-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-gap: 5px;
+    width: 100vw;
+}
+.btn-div > button:nth-child(1) {
+    grid-row: 1;
+    grid-column: 2 / 3;  
+    justify-self: end;
+}
+.btn-div > button:nth-child(2) {
+    grid-row: 1;
+    grid-column: 3 / 4;
+    justify-self: start;
+}
+.btn-div > button:nth-child(3) {
+    grid-row: 2;
+    grid-column: 2 / 3;
+    justify-self: end;
+}
+.btn-div > button:nth-child(4) {
+    grid-row: 2;
+    grid-column: 3 / 4;
+    justify-self: start;
+}
+.btn-div > button:nth-child(5) {
+    grid-row: 1;
+    grid-column: 4 / 5;
+    justify-self: end;
+}
+.btn-div > button:nth-child(6) {
+    grid-row: 1;
+    grid-column: 5 / 6;
+    justify-self: start;
+}
+.btn-div > button:nth-child(7) {
+    grid-row: 2;
+    grid-column: 4 / 5;
+    justify-self: end;
+}
+.btn-div > button:nth-child(8) {
+    grid-row: 2;
+    grid-column: 5 / 6;
+    justify-self: start;
+}
