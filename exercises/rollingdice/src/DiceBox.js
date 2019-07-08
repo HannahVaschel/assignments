@@ -6,10 +6,10 @@ class DiceBox extends Component {
         super()
         this.state = {
             die1: {num: 0, selected: false, dieNum: "die1"}, 
-            // die2: {num: 0, selected: false}, 
-            // die3: {num: 0, selected: false}, 
-            // die4: {num: 0, selected: false},
-            // die5: {num: 0, selected: false},
+            die2: {num: 0, selected: false, dieNum: "die2"}, 
+            die3: {num: 0, selected: false, dieNum: "die3"}, 
+            die4: {num: 0, selected: false, dieNum: "die4"},
+            die5: {num: 0, selected: false, dieNum: "die5"},
             
             // dieClass1: "",
             // dieClass2: "",
@@ -23,14 +23,15 @@ class DiceBox extends Component {
         return Math.floor(Math.random() * num) + 1
     }
 
-    rollDice = (dieNum) => {
-        console.log(dieNum)
+    rollDice = (e) => {
+        const allValues = Object.values(this.state)
+        console.log(allValues.filter(die => die.selected === false))
         this.setState(prevState => ({
-            [dieNum]: {...prevState[[dieNum]], num: this.roll(6)},
-            // die2: {...prevState.die2, num: this.roll(6)},
-            // die3: {...prevState.die3, num: this.roll(6)},
-            // die4: {...prevState.die4, num: this.roll(6)},
-            // die5: {...prevState.die5, num: this.roll(6)},
+            die1: {...prevState.die1, num: this.roll(6)},
+            die2: {...prevState.die2, num: this.roll(6)},
+            die3: {...prevState.die3, num: this.roll(6)},
+            die4: {...prevState.die4, num: this.roll(6)},
+            die5: {...prevState.die5, num: this.roll(6)},
         }))
 
     }
@@ -60,21 +61,20 @@ class DiceBox extends Component {
     //     } 
     // }
 
-    // selectDie = () => {
-    //     this.setState(prevState => ({
-    //         die1: {...prevState.die1, selected: },
-    //         die2: {...prevState.die2, selected: },
-    //         die3: {...prevState.die3, selected: },
-    //         die4: {...prevState.die4, selected: },
-    //         die5: {...prevState.die5, selected: },
-    //     }))
-    // }
+    selectDie = (e, dieNum) => {
+        // let isSelected = this.state.selected
+        console.log(this.state.die1.selected)
+        this.setState(prevState => ({
+            [dieNum]: {...prevState[dieNum], selected: !this.state[dieNum].selected },
+        }))
+    }
 
     render(){
         const diceArr = [this.state.die1, this.state.die2, this.state.die3, this.state.die4, this.state.die5]
         const mappedDice = diceArr.map((die, i) => <Die
                                                     key={"die" + i}
                                                     {...die}
+                                                    selectDie={this.selectDie}
                                                     />)
 
         return(

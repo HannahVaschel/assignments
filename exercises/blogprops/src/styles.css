@@ -9,20 +9,51 @@
 
 .header-div {
     background-image: url("https://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg");
-    height: 525px;
+    height: 530px;
     background-size: cover;
     background-position: center;
     color: white;
     text-align: center;
-    
+    display: flex;
+    flex-direction: column;
+}
+.header-div >h1 {
+    justify-self: center;
+}
+
+.title-div {
+    justify-self: center;
 }
 
 .nav-div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    
-    
-    
+    padding: 20px 50px;
+}
 
+.home-nav {
+margin-left: 50%;
+}
+
+.blog-list {
+    margin: 50px 25vw;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-div {
+    margin-bottom: 25px;
+}
+.post-div > hr {
+    margin-top: 25px;
+}
+
+.tagline {
+    font-style: italic;
+    color: grey
+}
+.tag-author {
+    color: black;
 }

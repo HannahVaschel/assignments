@@ -1,9 +1,11 @@
 import React from 'react'
 
 const Die = props => {
-    // console.log(props)
+    let isSelected
+    props.selected ? isSelected = "selected" : isSelected = ""
+
     return(
-        <div className={`die-div ${props.dieClass}`} onClick={() => props.selectDie(props.dieNum)} >
+        <div className={`die-div ${isSelected}`} onClick={(e) => props.selectDie(e, props.dieNum)} >
             <h3>{props.num}</h3>
         </div>
 

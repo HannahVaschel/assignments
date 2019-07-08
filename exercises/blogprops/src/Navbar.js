@@ -3,11 +3,11 @@ import React from 'react'
 function Navbar(){
     return(
         <div className="nav-div">
-            Start Bootstrap
-            Home
-            About
-            Sample Post
-            Contact
+            <p>Start Bootstrap</p>
+            <p className="home-nav">Home</p>
+            <p>About</p>
+            <p>Sample Post</p>
+            <p>Contact</p>
         </div>
     )
 }
