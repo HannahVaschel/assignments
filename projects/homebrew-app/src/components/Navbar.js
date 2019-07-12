@@ -5,7 +5,7 @@ const Navbar = () => {
     return(
         <div className="navbar">
             <Link to="/">Home</Link>
-            <Link to="/timer">BrewTimer</Link>
+            <Link to="/brewday-tools">BrewDay</Link>
             <Link to="">Elsewhere</Link>
         </div>
     )

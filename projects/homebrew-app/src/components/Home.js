@@ -1,9 +1,8 @@
 import React from 'react'
 import TileList from './TileList.js'
-import {withBeers} from './context/BeerProvider.js'
+
 
 const Home = props => {
-    console.log(props)
     return(
         <div>
             <button onClick={props.getRandomBeer}>Get Random Beer</button>
@@ -14,4 +13,4 @@ const Home = props => {
     )
 }
 
-export default withBeers(Home)
+export default Home

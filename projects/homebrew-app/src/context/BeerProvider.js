@@ -33,18 +33,15 @@ class BeerProvider extends Component {
     }
 
     render(){
-        console.log(this.state.beers)
+    
         return(
             <BeerContext.Provider
                 value={{
                     beers: {...this.state},
                     getRandomBeer: this.getRandomBeer,
                     getAllBeers: this.getAllBeers,
-        
-
                 }}
             >
-
                 {this.props.children}
             </BeerContext.Provider>
         )

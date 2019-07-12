@@ -1,11 +1,5 @@
 import React from 'react'
 
-{/* <h1>{name} </h1>
-            <p>{abv} ABV </p>
-            <p>{ibu} IBU</p>
-            <h3>{tagline}</h3>
-            <p>{description}</p> */}
-
 const BeerTile = props => {
 
     

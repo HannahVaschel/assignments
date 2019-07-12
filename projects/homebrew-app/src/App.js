@@ -3,19 +3,16 @@ import { withBeer } from './context/BeerProvider.js'
 import { Route, Switch } from 'react-router-dom'
 import Home from './components/Home.js'
 import Navbar from './components/Navbar.js'
-import BrewTimer from './components/BrewTimer.js'
+import BrewDay from './components/BrewDay.js'
 
 class App extends Component {
     constructor(){
         super()
-        this.state = {
-
-        }
+        this.state = {}
     }
 
     render(){
-        console.log(this.props)
-
+    // console.log(this.props.beers)
         return(
             <div>
                 <Navbar />
@@ -23,12 +20,18 @@ class App extends Component {
                     <Route exact path="/" 
                         render={(routerProps) => <Home 
                                                     {...routerProps} 
-                                                    beers={this.props.beers} 
-                                                    getRandomBeer={this.getRandomBeer} 
-                                                    getAllBeers={this.getAllBeers}
+                                                    beers={this.props.beers}
+                                                    getRandomBeer={this.props.getRandomBeer}
+                                                    getAllBeers={this.props.getAllBeers}
+                                                
                                                 />}
                     />
-                    <Route path="/timer" component={BrewTimer}/>
+                    <Route path="/brewday-tools" render={(routerProps) => <BrewDay
+                                                                    {...routerProps}
+                                                                    {...this.props}
+
+                                                                    />}
+                    />
                     
                 </Switch>
 
