@@ -31,10 +31,10 @@ class BoilTimer extends Component {
             if (arr[i].add.toLowerCase() === 'start' || arr[i].add >= 60){
                 bitterArr.push(arr[i].name)
 
-            } else if (arr[i].add.toLowerCase() === 'middle' || (arr[i] < 60 && arr[i] > 9)){
+            } else if (arr[i].add.toLowerCase() === 'middle' || (arr[i].add < 60 && arr[i].add > 9)){
                 flavorArr.push(arr[i].name)
 
-            } else if (arr[i].add.toLowerCase() === 'end' || arr[i] === 0){
+            } else if (arr[i].add.toLowerCase() === 'end' || arr[i].add == 0){
                 aromaArr.push(arr[i].name)
             }
         } 
@@ -43,8 +43,6 @@ class BoilTimer extends Component {
         return hopScheduleArr
         
     }
-
-    // todo: now make this full array and its children go where they need to for the timer to function!
 
 
     
@@ -64,7 +62,7 @@ class BoilTimer extends Component {
                     <input type="number" name="aroma" value={0} onChange={handleChange}></input>
 
                     
-                    <button onClick={() => this.props.hopAdditions(this.hopSchedule(hops))}>Start Timer</button>
+                    <button onClick={() => this.props.startBoil(this.hopSchedule(hops))}>Start Timer</button>
                     <p>{this.props.time}</p>
                 </form>
         )

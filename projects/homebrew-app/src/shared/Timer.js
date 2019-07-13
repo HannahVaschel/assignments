@@ -15,7 +15,6 @@ class Timer extends Component {
         this.secondInterval = null
         
     }
-    
 
     addTime = () => {
         this.setState({
@@ -23,15 +22,14 @@ class Timer extends Component {
         })
         if (this.state.time === 10){
             clearInterval(this.firstInterval)
-            this.flavorHops(this.state.flavorHops)
+            this.secondHopAddition(this.state.flavorHops)
         }else if (this.state.time === 15){
             clearInterval(this.secondInterval)
-        }
+            alert(`Add your ${this.state.aromaHops} now. Flame out.`)
+        } 
     }
     
-// ? how do I store/maintain hopSchedule array when I can only pass it ONCE upon clicking start timer button?
-
-    hopAdditions = (hopSchedule) => {
+    startBoil = (hopSchedule) => {
         const bitterHops = hopSchedule[0]
         const flavorHops = hopSchedule[1]
         const aromaHops = hopSchedule[2]
@@ -43,32 +41,13 @@ class Timer extends Component {
     
         alert(`Add your ${bitterHops} now.`)
         this.firstInterval = setInterval(this.addTime, 1000)
-        
-        if (this.state.time === 10){
-            alert(`Add your ${flavorHops} now.`)
-            this.secondInterval = setInterval(this.addTime, 1000)
-            clearInterval(this.firstInterval)
-        } else if (this.state.time === 15){
-            alert( `Add your ${aromaHops} now.`)
-            clearInterval(this.secondInterval)
-        }
-
-
-        
     }
 
-
-    bitterHops = (hopSchedule) => {
-        const bitterHops = hopSchedule[0]
-
-        alert(`Add your ${bitterHops} now.`)
-        this.firstInterval = setInterval(this.addTime, 1000)
-    } 
-
-    flavorHops = (flavorHops) => {
+    secondHopAddition = (flavorHops) => {
         alert (`Add your ${flavorHops} hops now.`)
         this.secondInterval = setInterval(this.addTime, 1000)
     }
+
 
     handleChange = e => {
         const { name, value } = e.target
@@ -85,7 +64,6 @@ class Timer extends Component {
         this.props.submit(this.state.inputs)
     }
 
-
     render(){
         console.log(this.state.time)
 
@@ -93,8 +71,8 @@ class Timer extends Component {
             inputs: this.state.inputs,
             handleChange :this.handleChange,
             handleSubmit: this.handleSubmit,
-            hopAdditions: this.hopAdditions,
-            bitterHops: this.bitterHops,
+            startBoil: this.startBoil,
+    
             time: this.state.time
 
         })
