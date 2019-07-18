@@ -2,8 +2,6 @@ import React from 'react'
 
 const BeerTile = props => {
 
-    
-
     const { name, abv, ibu, tagline, description } = props
 
     return(

@@ -7,17 +7,19 @@ class BeerProvider extends Component {
     constructor(){
         super()
         this.state = {
-            beers: [],
+            beerArr: {beers: [{abv: "", id: "", ingredients: {hops: [] }, method: {fermentation: {temp: ""}, mash_temp: []} } ]},
+            beers: {beers:{}}
 
         }
     }
 
     getRandomBeer = () => {
+        
         axios.get("https://api.punkapi.com/v2/beers/random")
             .then(res => {
                 this.setState({
                     beers: res.data
-                })
+                }, () => console.log(this.state.beers))
             })
             .catch(err => console.log(err))
     }
@@ -32,12 +34,17 @@ class BeerProvider extends Component {
             .catch(err => console.log(err))
     }
 
+    // componentDidMount(){
+    //     this.getAllBeers()
+    // }
+
     render(){
-    
+        console.log(this.state.beerArr)
+
         return(
             <BeerContext.Provider
                 value={{
-                    beers: {...this.state},
+                    beers: {...this.state.beers},
                     getRandomBeer: this.getRandomBeer,
                     getAllBeers: this.getAllBeers,
                 }}

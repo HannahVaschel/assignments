@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 
-// todo: use render props to make this a functional component that gathers and sorts information
-
-// todo: sort hop information, create schedule info to be utilized by Timer.js
-
-
+// todo: fix broken stuff:
+    // todo: setTimes doesn't populate hopTimes array
+    // todo: make boilTimer count backwards and display properly
 
 // ! Hop schedule info ONLY here!
 
@@ -13,13 +11,42 @@ class BoilTimer extends Component {
     constructor(){
         super()
         this.state = {
-            time: 0
+            times: [60, 60, 30, 0]
         }
     }
 
-    
-    // const { hops, malt, yeast } = this.props.ingredients
+    setTimes = (arr) => {
+        // will always be sent the array of hops for a recipe
+        const { value } = this.props.method.fermentation.temp
+        const hopTimes = []
+        const additionTimes = []
 
+        for (let i = 0; i < arr.length; i++){
+    
+            console.log(arr[i].add)
+            if (!isNaN(Number(arr[i].add))) {
+                hopTimes.push(Number(arr[i].add))
+            }
+        }
+        
+        console.log(hopTimes)
+        if (hopTimes.length > 0){
+            for (let i = 0; i < hopTimes.length; i++){
+                if (additionTimes.indexOf(hopTimes[i]) === -1){
+                    additionTimes.push(hopTimes[i]) 
+                    
+                }
+            }
+        }
+        console.log(additionTimes)
+        if (value >= 15 && additionTimes.length > 0){
+            this.setState({ times: [60, ...additionTimes]})
+        } else if ( value >= 15 && additionTimes.length === 0){
+            this.setState({ times: [60, 60, 30, 0]})
+        } else if (value < 15 && additionTimes.length > 0){
+            this.setState({ times: [90, ...additionTimes]})
+        } else this.setState({ times: [90, 60, 30, 0]}) 
+    }
 
     
     hopSchedule = (arr) => {
@@ -28,6 +55,7 @@ class BoilTimer extends Component {
         const aromaArr = []
         const hopScheduleArr = []
         for (let i = 0; i < arr.length; i++){
+            console.log(arr[i].add)
             if (arr[i].add.toLowerCase() === 'start' || arr[i].add >= 60){
                 bitterArr.push(arr[i].name)
 
@@ -48,22 +76,38 @@ class BoilTimer extends Component {
     
     render(){
         const { hops } = this.props.ingredients
-        const { handleChange, handleSubmit, } = this.props
-        console.log(this.props)
-        console.log(this.hopSchedule(hops))
-        
-        
+        const { handleChange, handleSubmit, inputs: { totalTime, bittering, flavoring, aroma } } = this.props
+        // console.log(this.hopSchedule(hops))
+        // console.log(this.props.method.fermentation.temp.value)
+        // console.log(this.state)
+        const { value } = this.props.method.fermentation.temp
+        // console.log(this.state)
+
 
         return(
             
-                <form onSubmit={handleSubmit}>
-                    <input type="number" name="bittering" value={60} onChange={handleChange}></input>
-                    <input type="number" name="flavoring" value={30} onChange={handleChange}></input>
-                    <input type="number" name="aroma" value={0} onChange={handleChange}></input>
-
+                <form className="boil-timer" onSubmit={handleSubmit}>
+                    <div className="boil-input">
+                        <input type="number" name="totalTime" value={this.props.inputs.totalTime} onChange={handleChange}></input>
+                        <span>Total Time</span>
+                    </div>
+                    <div className="boil-input">
+                        <input type="number" name="bittering" value={this.props.inputs.bittering} onChange={handleChange}></input>
+                        <span>First Addition</span>
+                    </div>
+                    <div className="boil-input">
+                        <input type="number" name="flavoring" value={this.props.inputs.flavoring} onChange={handleChange}></input>
+                        <span>Second Addition</span>
+                    </div>
+                    <div className="boil-input">
+                        <input type="number" name="aroma"     value={this.props.inputs.aroma} onChange={handleChange}></input>
+                        <span>Third Addition</span>
+                    </div>
                     
+                    {/* <button onClick={() => this.props.setTimes(hops)}>Initiate Timer</button> */}
                     <button onClick={() => this.props.startBoil(this.hopSchedule(hops))}>Start Timer</button>
-                    <p>{this.props.time}</p>
+                    <button onClick={this.props.endBoil}>Clear Timer</button>
+                    <p>{this.props.boilTimeDisplay()}</p>
                 </form>
         )
     }

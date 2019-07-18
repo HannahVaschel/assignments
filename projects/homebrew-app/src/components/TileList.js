@@ -4,9 +4,10 @@ import BeerTile from './BeerTile.js'
 
 const TileList = props => {
 
-    const { beers } = props.beers
+    // const { beers } = props.beers
+    console.log(props.beers)
 
-    const mappedBeers = beers.map(beer => <BeerTile 
+    const mappedBeers = props.beers.map(beer => <BeerTile 
                                                     {...beer}
                                                     key={beer.id}
                                                     />)
@@ -14,8 +15,6 @@ const TileList = props => {
     return(
         <div>
             { mappedBeers }
-           
-
         </div>
     )
 }

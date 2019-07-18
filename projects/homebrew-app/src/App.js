@@ -4,6 +4,8 @@ import { Route, Switch } from 'react-router-dom'
 import Home from './components/Home.js'
 import Navbar from './components/Navbar.js'
 import BrewDay from './components/BrewDay.js'
+import RecipeViewer from './components/RecipeViewer.js'
+
 
 class App extends Component {
     constructor(){
@@ -11,8 +13,13 @@ class App extends Component {
         this.state = {}
     }
 
+    componentDidMount(){
+        this.props.getAllBeers()
+    }
+
     render(){
-    // console.log(this.props.beers)
+    console.log(this.props)
+    const actualBeerArray = Object.values(this.props.beers)
         return(
             <div>
                 <Navbar />
@@ -24,15 +31,25 @@ class App extends Component {
                                                     getRandomBeer={this.props.getRandomBeer}
                                                     getAllBeers={this.props.getAllBeers}
                                                 
-                                                />}
+                                                />
+                        }
                     />
-                    <Route path="/brewday-tools" render={(routerProps) => <BrewDay
-                                                                    {...routerProps}
-                                                                    {...this.props}
+                    <Route path="/brewday-tools" 
+                        render={(routerProps) => <BrewDay
+                                                    {...routerProps}
+                                                    {...this.props}
+                                                />
+                        }
+                    />
+                    <Route path="/recipe-view"
+                        render={(routerProps) => <RecipeViewer
+                                                    {...routerProps}
+                                                    beers={actualBeerArray}
+                                                    getRandomBeer={this.props.getRandomBeer}
+                                                />
+                        }
+                    />
 
-                                                                    />}
-                    />
-                    
                 </Switch>
 
 
