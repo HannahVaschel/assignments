@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 
 // todo: fix broken stuff:
     // todo: setTimes doesn't populate hopTimes array
-    // todo: make boilTimer count backwards and display properly
-
-// ! Hop schedule info ONLY here!
+    
 
 
 class BoilTimer extends Component {
@@ -15,38 +13,38 @@ class BoilTimer extends Component {
         }
     }
 
-    setTimes = (arr) => {
-        // will always be sent the array of hops for a recipe
-        const { value } = this.props.method.fermentation.temp
-        const hopTimes = []
-        const additionTimes = []
+    // setTimes = (arr) => {
+    //     // will always be sent the array of hops for a recipe
+    //     const { value } = this.props.method.fermentation.temp
+    //     const hopTimes = []
+    //     const additionTimes = []
 
-        for (let i = 0; i < arr.length; i++){
+    //     for (let i = 0; i < arr.length; i++){
     
-            console.log(arr[i].add)
-            if (!isNaN(Number(arr[i].add))) {
-                hopTimes.push(Number(arr[i].add))
-            }
-        }
+    //         console.log(arr[i].add)
+    //         if (!isNaN(Number(arr[i].add))) {
+    //             hopTimes.push(Number(arr[i].add))
+    //         }
+    //     }
         
-        console.log(hopTimes)
-        if (hopTimes.length > 0){
-            for (let i = 0; i < hopTimes.length; i++){
-                if (additionTimes.indexOf(hopTimes[i]) === -1){
-                    additionTimes.push(hopTimes[i]) 
+    //     console.log(hopTimes)
+    //     if (hopTimes.length > 0){
+    //         for (let i = 0; i < hopTimes.length; i++){
+    //             if (additionTimes.indexOf(hopTimes[i]) === -1){
+    //                 additionTimes.push(hopTimes[i]) 
                     
-                }
-            }
-        }
-        console.log(additionTimes)
-        if (value >= 15 && additionTimes.length > 0){
-            this.setState({ times: [60, ...additionTimes]})
-        } else if ( value >= 15 && additionTimes.length === 0){
-            this.setState({ times: [60, 60, 30, 0]})
-        } else if (value < 15 && additionTimes.length > 0){
-            this.setState({ times: [90, ...additionTimes]})
-        } else this.setState({ times: [90, 60, 30, 0]}) 
-    }
+    //             }
+    //         }
+    //     }
+    //     console.log(additionTimes)
+    //     if (value >= 15 && additionTimes.length > 0){
+    //         this.setState({ times: [60, ...additionTimes]})
+    //     } else if ( value >= 15 && additionTimes.length === 0){
+    //         this.setState({ times: [60, 60, 30, 0]})
+    //     } else if (value < 15 && additionTimes.length > 0){
+    //         this.setState({ times: [90, ...additionTimes]})
+    //     } else this.setState({ times: [90, 60, 30, 0]}) 
+    // }
 
     
     hopSchedule = (arr) => {
@@ -75,13 +73,18 @@ class BoilTimer extends Component {
 
     
     render(){
-        const { hops } = this.props.ingredients
+        if (!this.props.beers[0].ingredients){
+            return null
+        }
+        // console.log(this.props.beers[0].ingredients.hops)
+        const { hops } = this.props.beers[0].ingredients
         const { handleChange, handleSubmit, inputs: { totalTime, bittering, flavoring, aroma } } = this.props
-        // console.log(this.hopSchedule(hops))
+        console.log(this.hopSchedule(hops))
         // console.log(this.props.method.fermentation.temp.value)
         // console.log(this.state)
         const { value } = this.props.method.fermentation.temp
-        // console.log(this.state)
+        console.log(hops)
+        
 
 
         return(

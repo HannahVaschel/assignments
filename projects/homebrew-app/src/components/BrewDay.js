@@ -4,6 +4,7 @@ import Timer from '../shared/Timer.js'
 import TileList from './TileList.js'
 import MashTimer from './MashTimer.js'
 import { withBeer } from '../context/BeerProvider.js'
+import ReBoilTimer from './ReBoilTimer.js'
 
 
 class BrewDay extends Component {
@@ -36,9 +37,14 @@ class BrewDay extends Component {
         }
     }
 
+    componentDidMount(){
+        this.props.getAllBeers()
+    }
+
     componentDidUpdate(prevProps){
-        console.log(this.props.beers)
-       if (this.props.beers.length && prevProps.beers.beers !== undefined && this.props.beers.beers[0].id !== prevProps.beers.beers[0].id){ 
+        // console.log(prevProps.beers[0])
+
+       if (this.props.beers.length && prevProps.beers !== undefined && this.props.beers[0].id !== prevProps.beers[0].id){ 
             const { hops } = this.props.beers.beerArr.beers[0].ingredients
             const times = this.setTimes(hops)
             this.setState({
@@ -91,11 +97,11 @@ class BrewDay extends Component {
             
     render(){
         const {beers} = this.state.beerArr
-        console.log(this.state.beerArr.beers[0])
+        // console.log(this.state.beerArr)
         // console.log(beers[0].ingredients)
         const { hops } = this.state.beerArr.beers[0].ingredients
-        console.log(hops)
-        console.log(this.state.times)
+        // console.log(hops)
+        // console.log(this.state.times)
         const actualBeerArray = Object.values(this.props.beers)
 
 
@@ -119,16 +125,17 @@ class BrewDay extends Component {
                     </div>
     
                     <div className="boil-timer-div">
-                        <h1>Boil Timer</h1>
+                        {/* <h1>Boil Timer</h1>
                       
                         <Timer 
                             inputs={{ totalTime: this.state.times[0], bittering: this.state.times[1], flavoring: this.state.times[2], aroma: this.state.times[3], }}
                             submit={(inputs) => null}
                             render={(timerProps) => beers.map(beer =>  
-                                                        <BoilTimer {...timerProps} key={beer.id} {...beer} setTimes={this.setTimes}/> 
+                                                        <BoilTimer {...timerProps} key={beer.id} {...beer} setTimes={this.setTimes} beers={actualBeerArray}/> 
                                                         // mapping props.beers AND spreading timerProps into <BoilTimer/>
                             )}                        
-                        />
+                        /> */}
+                    <ReBoilTimer beers={actualBeerArray}/>
                     </div>
                </div>
                 

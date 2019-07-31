@@ -13,9 +13,9 @@ class App extends Component {
         this.state = {}
     }
 
-    componentDidMount(){
-        this.props.getAllBeers()
-    }
+    // componentDidMount(){
+    //     this.props.getAllBeers()
+    // }
 
     render(){
     console.log(this.props)

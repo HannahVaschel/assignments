@@ -214,7 +214,7 @@ class Timer extends Component {
 
 
     render(){
-        // console.log(this.state.inputs)
+        console.log(this.state.inputs)
     
         return this.props.render({
             inputs: this.state.inputs,
