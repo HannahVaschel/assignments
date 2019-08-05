@@ -4,9 +4,9 @@ import { withBeer } from '../context/BeerProvider.js'
 
 
 class Home extends Component {
-    componentDidMount(){
-        this.props.getAllBeers()
-    }
+    // componentDidMount(){
+    //     this.props.getAllBeers()
+    // }
 
     render(){
         console.log(this.props)

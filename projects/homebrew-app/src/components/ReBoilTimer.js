@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 
-// todo: figure out why getRandomBeer() is NOT causing componentDidUpdate to run more than once per page refresh
 // todo: sort out business with getAllBeers running on ALL screens on componentDidMount
 
 class ReBoilTimer extends Component {
     constructor(){
         super()
         this.state = {
-            times: [],
+            times: [0, 0, 0, 0],
             boilMinutes: 0,
             boilSeconds: 0,
         }
@@ -15,10 +14,10 @@ class ReBoilTimer extends Component {
         this.boilDisplay = null
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps){
         if (!this.props.beers[0].ingredients){
             return null
-        } else if (this.state.times.length < 1 && this.props.beers.length === 1){
+        } else if (this.props.beers[0].ingredients !== prevProps.beers[0].ingredients && this.props.beers.length === 1){
             this.setState({
                 times: this.setTimes(this.props.beers[0].ingredients.hops)
             }, () => console.log(this.state.times))
@@ -53,44 +52,20 @@ class ReBoilTimer extends Component {
         console.log(value)
         if (value >= 15 && additionTimes.length > 0){
             console.log(1)
-            return  [60, ...additionTimes]
+            const times = [60, ...additionTimes]
+            return times.sort((a, b) => b - a)
         } else if ( value >= 15 && additionTimes.length === 0){
             console.log(2)
-            return [60, 60, 30, 0]
+            const times = [60, 60, 30, 0]
+            return times.sort((a, b) => b - a)
         } else if (value < 15 && additionTimes.length > 0){
             console.log(3)
-            return [90, ...additionTimes]
+            const times = [90, ...additionTimes]
+            return times.sort((a, b) => b - a)
         } else console.log(4) 
-        return [90, 60, 30, 0] 
+            const times = [90, 60, 30, 0] 
+            return times.sort((a , b) => b - a)
     }
-
-
-
-    hopSchedule = (arr) => {
-        const flavorArr = []
-        const bitterArr = []
-        const aromaArr = []
-        const hopScheduleArr = []
-        for (let i = 0; i < arr.length; i++){
-            console.log(arr[i].add)
-            if (arr[i].add.toLowerCase() === 'start' || arr[i].add >= 60){
-                bitterArr.push(arr[i].name)
-
-            } else if (arr[i].add.toLowerCase() === 'middle' || (arr[i].add < 60 && arr[i].add > 9)){
-                flavorArr.push(arr[i].name)
-
-            } else if (arr[i].add.toLowerCase() === 'end' || arr[i].add == 0){
-                aromaArr.push(arr[i].name)
-            }
-        } 
-        hopScheduleArr.push(bitterArr, flavorArr, aromaArr)
-        
-        return hopScheduleArr
-        
-    }
-   
-
-
 
 
     hopsSchedule = (arr) => {
@@ -224,11 +199,11 @@ class ReBoilTimer extends Component {
         const { hops } = this.props.beers[0].ingredients
         console.log(hops)
         return(
-            <form onSubmit={this.handleSubmit}>
-                <input type="Number" name="totalTime" value={this.state.times[0]} onChange={this.handleChange} />
-                <input type="Number" name="bittering" value={this.state.times[1]} onChange={this.handleChange} />
-                <input type="Number" name="flavoring" value={this.state.times[2]} onChange={this.handleChange} />
-                <input type="Number" name="aroma" value={this.state.times[3]} onChange={this.handleChange} />
+            <form onSubmit={this.handleSubmit} className="boil-timer">
+                <input className="boil-input" type="Number" name="totalTime" value={this.state.times[0]} onChange={this.handleChange} />
+                <input className="boil-input" type="Number" name="bittering" value={this.state.times[1]} onChange={this.handleChange} />
+                <input className="boil-input" type="Number" name="flavoring" value={this.state.times[2]} onChange={this.handleChange} />
+                <input className="boil-input" type="Number" name="aroma" value={this.state.times[3]} onChange={this.handleChange} />
                 <p>{this.boilTimeDisplay()}</p>
 
                 <button onClick={() => this.startBoil(this.hopsSchedule(hops))}>Start Timer</button>

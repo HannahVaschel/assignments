@@ -37,9 +37,9 @@ class BrewDay extends Component {
         }
     }
 
-    componentDidMount(){
-        this.props.getAllBeers()
-    }
+    // componentDidMount(){
+    //     this.props.getAllBeers()
+    // }
 
     componentDidUpdate(prevProps){
         // console.log(prevProps.beers[0])
@@ -125,9 +125,9 @@ class BrewDay extends Component {
                     </div>
     
                     <div className="boil-timer-div">
-                        {/* <h1>Boil Timer</h1>
+                        <h1>Boil Timer</h1>
                       
-                        <Timer 
+                        {/* <Timer 
                             inputs={{ totalTime: this.state.times[0], bittering: this.state.times[1], flavoring: this.state.times[2], aroma: this.state.times[3], }}
                             submit={(inputs) => null}
                             render={(timerProps) => beers.map(beer =>  

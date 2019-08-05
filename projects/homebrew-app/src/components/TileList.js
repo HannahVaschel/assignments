@@ -8,8 +8,8 @@ const TileList = props => {
     console.log(props.beers)
 
     const mappedBeers = props.beers.map(beer => <BeerTile 
-                                                    {...beer}
                                                     key={beer.id}
+                                                    {...beer}
                                                     />)
 
     return(
