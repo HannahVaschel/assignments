@@ -36,7 +36,7 @@ tabRouter.post("/", (req, res, next) => {
     newTab.save((err, savedTab) => {
         if(err){
             res.status(500)
-            return next(err0)
+            return next(err)
         }
         res.status(201).send(savedTab)
     })

@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { withNotes } from '../../context/NoteProvider.js'
+import SavedList from './SavedList.js'
 
 const SetList = props => {
+    const { getSetList } = props
+
+    useEffect(() => {
+        getSetList()
+
+    }, [getSetList])
+
+
+
     return(
-        <div>Saved Tabs</div>
+        <div>
+            <h1>Setlist</h1>
+            <SavedList {...props}/>
+        </div>
     )
 }
 

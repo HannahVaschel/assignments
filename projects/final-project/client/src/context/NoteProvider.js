@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 const NoteContext = React.createContext()
+const userAxios = axios.create()
+// * Axios Interceptor
+userAxios.interceptors.request.use((config) => {
+    const token = localStorage.getItem("token")
+    config.headers.Authorization = `Bearer ${token}`
+    return config
+})
 
 class NoteProvider extends Component {
     constructor(){
@@ -14,29 +21,47 @@ class NoteProvider extends Component {
             params: "",
             exactLink: "",
             resultArr: [],
-            searchType: "byGeneral",
+            resultNum: "",
+            songName: "",
+            artistName: "",
 
             convertedNotes: [],
+            addressArr: [],
+            
+            savedTabs: [],
 
 
         }
     }
     // * Tab Translator Functions
-    tabToNote = fretsObj => {
+    tabToNote = (fretsObj, inst) => {
+        console.log(fretsObj)
         const frets = Object.values(fretsObj)
         console.log(frets)
-
+        
         const notes = ["G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#"]
-        const strings = ["E", "B", "G", "D", "A", "E"]
-        let convertedNotes = []
-        let fret
+        let strings
+        if(inst === "guitar"){
+            strings = ["E", "B", "G", "D", "A", "E"]
+        } else if(inst === "bass"){
+            strings = ["G", "D", "A", "E"]
+        } else if (inst === "uke"){
+            strings = ["A", "E", "C", "G"]
+        }
+
+        const addressArr = [] // for use in fret display diagram
+        let convertedNotes = []  
+        let fret  // what actual fret is depressed on each string
+        
         for (let i = 0; i < frets.length; i++){
             fret = frets[i]
+            addressArr.push(fret)
+                // x is the index of the letter name of the open string in notes
             let x = notes.indexOf(strings[i])
             if(fret >= 12){
                 fret = fret % 12
             } else  fret = Number(fret)
-            console.log(x)
+            
             switch(fret){
                 case 0:
                     convertedNotes.push(notes[x])
@@ -74,54 +99,121 @@ class NoteProvider extends Component {
                 case 11:
                     convertedNotes.push(notes[x + 11])
                     break
+                default:
+                    break
             }
 
         }
-        console.log(convertedNotes)
-        this.setState({ convertedNotes: convertedNotes })
+        this.setState({ 
+            convertedNotes: convertedNotes,
+            addressArr: addressArr
+        })
+    }
+    
+    clearNotes = () => {
+        this.setState({
+            convertedNotes: []
+        })
     }
 
     // * Search Functions
-    setSearchType = selected => {
-        console.log(selected)
-        this.setState({
-            searchType: selected
-        })
-    }
     searchTabs = (params) => {
-        const { artistName, songName, general, searchSelect } = params
-        const artist = `a=${artistName}`
-        const song = `s=${songName}`
+        const { artistName, songName, general } = params 
+        // if(artistName && songName){
+        //     this.setState({ 
+        //         exactLink: `http://www.songsterr.com/a/wa/bestMatchForQueryString?s=${songName}&a=${artistName}`,
+        //         songName: songName,
+        //         artistName: artistName}, () => console.log(this.state.exactLink))
+        // } else
+         if(artistName && !songName){
+            const multiWordName = artistName.split(" ").join("%20")
+            console.log(multiWordName)
+            console.log(artistName.indexOf(" "))
+            artistName.indexOf(" ") === -1 ? 
+                axios.get(`http://www.songsterr.com/a/ra/songs/byartists.json?artists=${artistName}`)
+                    .then(res => {
+                        this.setState({ resultArr: res.data, resultNum: res.data.length })
+                    })
+                    .catch(err => console.log(err))
+            : axios.get(`http://www.songsterr.com/a/ra/songs/byartists.json?artists="${multiWordName}"`)
+                .then(res => {
+                    this.setState({ resultArr: res.data, resultNum: res.data.length })
+                })
+                .catch(err => console.log(err))
 
-        // axios.get(`http://www.songsterr.com/a/wa/bestMatchForQueryString?s=${songName}&a=${artistName}`)
-        //     .then(res => console.log(res))
-        //     .catch(err => console.log(err))
-        
-            
-        if(artistName && songName){
-            this.setState({ exactLink: `http://www.songsterr.com/a/wa/bestMatchForQueryString?s=${songName}&a=${artistName}`})
         } else {
             axios.get(`http://www.songsterr.com/a/ra/songs.json?pattern=${general}`)
                 .then(res => {
-                    this.setState({ resultArr: res.data })
+                    this.setState({ resultArr: res.data, resultNum: res.data.length })
                 })
                 .catch(err => console.log(err))
         }
-
-        // this.setState(prevState => ({
-        //     params: [...prevState.params, params]
-        // }))
     }
 
     openNewTab = link => {
         window.open(link)
     }
 
+    clearResultCount = () => {
+        this.setState({
+            resultNum: "",
+            resultArr: []
+        })
+    }
 
+    // * SetList Functions
+    saveTab = ([...info]) => {
+        console.log(info)
+        const { title, artist, id } = info[0]
+        const newSave = {
+                    title, 
+                    artist: artist.name,
+                    url: `http://www.songsterr.com/a/wa/song?id=${id}`,
+                    }
+        console.log(newSave)
+        userAxios.post("./api/saved/", newSave)
+            .then(res => {
+                this.setState(prevState => ({
+                    savedTabs: [...prevState.savedTabs, res.data]
+                }))
+            })
+            .catch(err => console.log(err))
+    }
+
+    getSetList = () => {
+        userAxios.get("./api/saved/")
+            .then(res => {
+                this.setState({
+                    savedTabs: res.data
+                })
+            })
+            .catch(err => console.log(err))
+    }
+
+    deleteTab = _id => {
+        userAxios.delete(`./api/saved/${_id}`)
+            .then(res => {
+                alert(res.data.msg)
+                this.getSetList()
+            })
+            .catch(err => console.log(err))
+    }
+
+    editNotes = (_id, updatedNotes) => {
+        console.log(_id)
+        console.log(updatedNotes)
+        const savedNotes = { notes: updatedNotes }
+        userAxios.put(`/api/saved/${_id}`, savedNotes)
+            .then(res => {
+                console.log(res)
+                this.getSetList()
+            })
+            .catch(err => console.log(err))
+    }
 
     // * User Authorization Functions
     signup = credentials => {
-        axios.post("/auth/signup", credentials)
+        userAxios.post("/auth/signup", credentials)
             .then(res => {
                 const { user, token } = res.data
                 localStorage.setItem("user", JSON.stringify(user))
@@ -132,7 +224,7 @@ class NoteProvider extends Component {
     }
 
     login = credentials => {
-        axios.post("/auth/login", credentials)
+        userAxios.post("/auth/login", credentials)
             .then(res => {
                 const { user, token } = res.data
                 localStorage.setItem("user", JSON.stringify(user))
@@ -167,15 +259,29 @@ class NoteProvider extends Component {
 
                     resultArr: this.state.resultArr,
                     exactLink: this.state.exactLink,
-                    searchType: this.state.searchType,
+                    resultNum: this.state.resultNum,
+                    songName: this.state.songName,
+                    artistName: this.state.artistName,
+
 
                     searchTabs: this.searchTabs,
                     openNewTab: this.openNewTab,
                     setSearchType: this.setSearchType,
+                    clearResultCount: this.clearResultCount,
 
                     convertedNotes: this.state.convertedNotes,
+                    addressArr: this.state.addressArr,
 
                     tabToNote: this.tabToNote,
+                    clearNotes: this.clearNotes,
+
+                    saveTab: this.saveTab,
+                    getSetList: this.getSetList,
+                    deleteTab: this.deleteTab,
+                    editNotes: this.editNotes,
+
+                    savedTabs: this.state.savedTabs,
+                    
                 }}
             >
                 {this.props.children}

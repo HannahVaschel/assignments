@@ -3,48 +3,49 @@ import React from 'react'
 const GuitarForm = props => {
     const { handleChange, handleSubmit, eStringHi, bString, gString, dString, aString, eString  } = props
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="guitar-form">
+            e
             <input 
                 type="number" 
-                name="eStringHi" 
+                name="gEStringHi" 
                 value={eStringHi} 
                 onChange={handleChange} 
-                placeholder=""
+                placeholder="E"
             />
-            <input 
+            b<input 
                 type="number" 
-                name="bString" 
+                name="gBString" 
                 value={bString} 
                 onChange={handleChange} 
-                placeholder=""
+                placeholder="B"
             />
-            <input 
+            g<input 
                 type="number" 
-                name="gString" 
+                name="gGString" 
                 value={gString} 
                 onChange={handleChange} 
-                placeholder=""
+                placeholder="G"
             />
-            <input 
+            D<input 
                 type="number" 
-                name="dString" 
+                name="gDString" 
                 value={dString} 
                 onChange={handleChange} 
-                placeholder=""
+                placeholder="D"
             />
-            <input 
+            A<input 
                 type="number" 
-                name="aString" 
+                name="gAString" 
                 value={aString} 
                 onChange={handleChange} 
-                placeholder=""
+                placeholder="A"
             />
-            <input 
+            E<input 
                 type="number" 
-                name="eString" 
+                name="gEString" 
                 value={eString} 
                 onChange={handleChange} 
-                placeholder=""
+                placeholder="E"
             />
             <button>Convert!</button>
         </form>
