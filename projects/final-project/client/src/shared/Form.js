@@ -8,6 +8,13 @@ class Form extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps){
+            // every input is just going to start as an empty string, so we need to pay attention to the name of the first string
+        if(Object.keys(nextProps.inputs)[0] !== Object.keys(this.props.inputs)[0]){
+            this.setState({ inputs: nextProps.inputs })
+        }
+    }
+
     handleChange = e => {
         const { name, value } = e.target
         this.setState(prevState => ({

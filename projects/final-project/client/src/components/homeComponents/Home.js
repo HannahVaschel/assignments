@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { withNotes } from '../../context/NoteProvider.js'
 import Form from '../../shared/Form.js'
 import GuitarForm from './guitar/GuitarForm.js'
@@ -15,24 +15,15 @@ const Home = props => {
     const [ instSelect, setInstSelect ] = useState("guitarFrets")
 
     const handleSelect = e => {
-        const { name, value } = e.target
+        const { value } = e.target
         setInstSelect(value)
         clearNotes()
-        components.instForm = ""
-        components.fretDiagram = ""
-        formInputs = ""
     }
-    // useEffect(() => {
-    //     setForms()
-    //     console.log("render")
-    // }, [instSelect])
-
 
     const components = {}
     let formInputs
     let instrument
 
-    
     if(instSelect === "guitarFrets"){
         formInputs = { gEStringHi: "", gBString: "", gGString: "", gDString: "", gAString: "", gEString: "" }
         instrument = "guitar"
@@ -62,21 +53,11 @@ console.log(convertedNotes)
 
             <InstSelect value={instSelect} handleChange={handleSelect}/>
             {components.instForm &&
-                <Form 
+                <Form className="tab-inputs"
                     inputs={formInputs}
                     submit={ inputs => tabToNote(inputs, instrument) }
                     render={ formProps => <components.instForm {...formProps} />}
                 /> }
-            {/* <Form 
-                inputs={formInputs}
-                submit={ inputs => tabToNote(inputs, "bass") }
-                render={ formProps => <BassForm {...formProps} />}
-            />
-            <Form 
-                inputs={{ aString: "", eString: "", cString: "", gString: "" }}
-                submit={ inputs => tabToNote(inputs, "uke") }
-                render={ formProps => <UkeForm {...formProps} />}
-            /> */}
 
             <p>{convertedNotes[0]}</p>
             <p>{convertedNotes[1]}</p>

@@ -1,34 +1,34 @@
 import React from 'react'
 
 const BassForm = props => {
-    const { handleChange, handleSubmit, gString, dString, aString, eString  } = props
+    const { handleChange, handleSubmit, bGString, bDString, bAString, bEString  } = props
     return(
-        <form onSubmit={handleSubmit} className="bass-form">
+        <form onSubmit={handleSubmit} className="tab-form">
             g<input 
                 type="number" 
                 name="bGString" 
-                value={gString} 
+                value={bGString} 
                 onChange={handleChange} 
                 placeholder="G"
             />
             D<input 
                 type="number" 
                 name="bDString" 
-                value={dString} 
+                value={bDString} 
                 onChange={handleChange} 
                 placeholder="D"
             />
             A<input 
                 type="number" 
                 name="bAString" 
-                value={aString} 
+                value={bAString} 
                 onChange={handleChange} 
                 placeholder="A"
             />
             E<input 
                 type="number" 
                 name="bEString" 
-                value={eString} 
+                value={bEString} 
                 onChange={handleChange} 
                 placeholder="E"
             />

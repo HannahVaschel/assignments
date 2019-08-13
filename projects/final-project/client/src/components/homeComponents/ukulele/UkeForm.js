@@ -1,35 +1,35 @@
 import React from 'react'
 
 const UkeForm = props => {
-    const { handleChange, handleSubmit, eStringHi, bString, gString, dString, aString, eString  } = props
+    const { handleChange, handleSubmit, uAString, uEString, uCString, uGString  } = props
     return(
-        <form onSubmit={handleSubmit} className="uke-form">
+        <form onSubmit={handleSubmit} className="tab-form">
             A
             <input 
                 type="number" 
                 name="uAString" 
-                value={eStringHi} 
+                value={uAString} 
                 onChange={handleChange} 
                 placeholder="A"
             />
             E<input 
                 type="number" 
                 name="uEString" 
-                value={bString} 
+                value={uEString} 
                 onChange={handleChange} 
                 placeholder="E"
             />
             C<input 
                 type="number" 
                 name="uCString" 
-                value={gString} 
+                value={uCString} 
                 onChange={handleChange} 
                 placeholder="C"
             />
             G<input 
                 type="number" 
                 name="uGString" 
-                value={dString} 
+                value={uGString} 
                 onChange={handleChange} 
                 placeholder="G"
             />
