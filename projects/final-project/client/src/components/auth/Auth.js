@@ -46,6 +46,7 @@ class Auth extends Component {
             <div className="auth-container">
                 { !this.state.toggle ?
                     <>
+                    <h1 className="auth-header">Sign Up</h1>
                     <AuthForm 
                         username={username}
                         password={password}
@@ -58,6 +59,7 @@ class Auth extends Component {
                     </>
                     :
                     <>
+                    <h1 className="auth-header">Log In</h1>
                     <AuthForm 
                         username={username}
                         password={password}

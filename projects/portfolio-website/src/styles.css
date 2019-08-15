@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+/*todo look into react-arrow and react-archer packages. both seem useful, but weren't realistic for MVP implementation */
+
+/***************! Navbar !****************/
+.nav-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 5vh;
+    background-color: #BF8FB7;
+}
+
+/***************! Home !****************/
+.home-container {
+    display: grid;
+    grid-template-columns: 5vw 15vw 20vw 20vw 20vw 15vw 5vw;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+    background-position: center;
+    background-size: cover;
+    color: rgb(162, 230, 247);
+}
+.intro-div {
+    grid-column: 2 / 5;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 4fr 1fr 4fr;
+}
+.intro-div > h1 {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    align-self: end;
+}
+.intro-div > hr {
+    border: 1px solid rgb(162, 230, 247);
+    grid-column: 2 / 3;
+    grid-row: 2;
+    align-self: center;
+    
+}
+.intro-div > h3 {
+    grid-row: 3;
+    grid-column: 2 / 3;
+}
+
+.hannah-pic {
+    height: 300px;
+    width: 220px;
+    background-image: url('./images/slack-pic.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 40px;
+    grid-row: 1 / 4;
+    
+
+}
+
+
+.skills-div {
+    grid-column: 6 / 7;
+    grid-row: 2;
+    
+}
+
+
+
+
+.about-div {
+    grid-column: 2 / 4;
+    grid-row: 4;
+    
+}
+
+
+
+.contact-div {
+    grid-column: 5 / 6;
+    grid-row: 5;
+}
+
+
+.link {
+    display: block;
+    color: #BF8FB7;
+}
+.btn {
+    border: 2px solid #123159;
+    background-color: #1F628C;
+    color: rgb(162, 230, 247);
+}
+
+
+/***************! Projects !****************/
+.projects-container {
+    background-color:#123159;
+    color: rgb(162, 230, 247);
+}
+.projects-header {
+    padding: 10px;
+}
+
+.display-div{
+    padding: 10px;
+}
+.display-div > p {
+    margin: 5px;
+}
+
+.img-div {
+    height: 200px;
+    width: 200px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.project-name {
+    color: #BF8FB7;
+    text-decoration: underline;
+}
+
+
+/***************! About !****************/
+.about-container {
+    background-color:#123159;
+    color: rgb(162, 230, 247);
+    height: 50vh;
+    text-align: center;
+    padding: 20px;
+}
+
+
+
+
+
+/***************! Footer !****************/
+.footer-container {
+    background-color: #BF8FB7;
+    text-align: center;
+    color: whitesmoke;
+    padding: 10px;
+}

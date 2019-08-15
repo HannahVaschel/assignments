@@ -18,7 +18,7 @@ const Search = props => {
     
     return(
         <div className="search-container">
-            
+            <h1 className="search-header">Search</h1>
             <Form 
                 inputs={{ songName: "", artistName: "", general: "" }}
                 submit={ inputs => searchTabs(inputs) }
@@ -28,7 +28,6 @@ const Search = props => {
 
             <div className="search-message-div">
                 { resultNum !== "" && <p>{resultNum} results found</p> }
-                { authErrMsg && <p>{authErrMsg}</p> }
             </div>            
             <div className="result-container">
                 {/* { exactLink !== "" && <p onClick={() => openNewTab(exactLink)}>{songName} - {artistName}</p> } */}
