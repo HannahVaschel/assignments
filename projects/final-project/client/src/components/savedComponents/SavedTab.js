@@ -15,9 +15,8 @@ const SavedTab = props => {
     }
     const handleSubmit = e => {
         if(canEdit){
-
             e.preventDefault()
-            editNotes(_id, newNotes)
+            editNotes(_id, newNotes ? newNotes : notes)
                 // clicking save button sets canEdit back to false
             setEdit(prevEdit => !prevEdit)
         } else {  
@@ -27,25 +26,25 @@ const SavedTab = props => {
         }
 
     }
-    const formClass = canEdit ? "editMode" : "displayMode"
-  
+    const formClass = canEdit ? "note-form edit-mode" : "note-form display-mode"
+
     return(
-        <div>
-            <p onClick={() => openNewTab(url)}>{title} - {artist}</p>
+        <div className="saved-tab">
+            <p className="saved-link" onClick={() => openNewTab(url)}>{title} - {artist}</p>
             <form className={formClass} onSubmit={handleSubmit}>
                 { canEdit ?
                     <>
-                    <textarea name="notes" value={newNotes || editCount > 0 ? newNotes : notes} onChange={handleChange} cols="30" rows="2" placeholder="current metronome marking, practice reminders, performance notes, etc"></textarea>
-                    <button /*onClick={() => editNotes(_id, newNotes)}*/>Save Notes</button>
+                    <textarea className="edit-notes" name="notes" value={newNotes || editCount > 0 ? newNotes : notes} onChange={handleChange} cols="50" rows="3" placeholder="performance notes, metronome marking, practice reminders, etc"></textarea>
+                    <button className="note-btn">Save Notes</button>
                     </>
                   :
                     <>
-                    <p>{notes ? notes : "(add notes!)"}</p>
-                    <button>Edit Notes</button>
+                    <p className="saved-notes">{notes ? notes : "use this space for notes"}</p>
+                    <button className="note-btn">Edit Notes</button>
                     </>
                 }
             </form>
-            <button onClick={() => deleteTab(_id)}>Remove</button>
+            <button className="delete-btn" onClick={() => deleteTab(_id)}>Remove Tab</button>
         </div>
     )
 }

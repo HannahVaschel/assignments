@@ -40,31 +40,34 @@ const Home = props => {
         components.fretDiagram = Ukulele
         instrument = "uke"
     }
-        
-    console.log(instSelect)
-console.log(formInputs)
-console.log(convertedNotes)
-
 
 
     return(
-        <div>
-            {/* <iframe src="https://guitarsix.com/metronome/" height="475" width="350" frameborder="0"></iframe> */}
+        <div className="home-container">
+            <h1 className="home-header">EasyTab</h1>
+            <p className="instructions">Enter tab numbers to get note-name conversions.</p>
+            
+            
 
             <InstSelect value={instSelect} handleChange={handleSelect}/>
-            {components.instForm &&
-                <Form className="tab-inputs"
-                    inputs={formInputs}
-                    submit={ inputs => tabToNote(inputs, instrument) }
-                    render={ formProps => <components.instForm {...formProps} />}
-                /> }
+            <div className="home-sidebar"></div>
+                {components.instForm &&
+                    <Form
+                        inputs={formInputs}
+                        submit={ inputs => tabToNote(inputs, instrument) }
+                        render={ formProps => <components.instForm {...formProps} />}
+                    /> }
+              
+           
 
-            <p>{convertedNotes[0]}</p>
-            <p>{convertedNotes[1]}</p>
-            <p>{convertedNotes[2]}</p>
-            <p>{convertedNotes[3]}</p>
-            <p>{convertedNotes[4]}</p>
-            <p>{convertedNotes[5]}</p>
+            <div className="note-container">
+                <p>{convertedNotes[0]}</p>
+                <p>{convertedNotes[1]}</p>
+                <p>{convertedNotes[2]}</p>
+                <p>{convertedNotes[3]}</p>
+                <p>{convertedNotes[4]}</p>
+                <p>{convertedNotes[5]}</p>
+            </div>
 
             <components.fretDiagram {...props}/>
         </div>

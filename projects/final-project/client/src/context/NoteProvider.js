@@ -18,7 +18,6 @@ class NoteProvider extends Component {
             token: localStorage.getItem("token") || "",
             authErrMsg: "",
 
-            params: "",
             exactLink: "",
             resultArr: [],
             resultNum: "",
@@ -35,9 +34,7 @@ class NoteProvider extends Component {
     }
     // * Tab Translator Functions
     tabToNote = (fretsObj, inst) => {
-        console.log(fretsObj)
         const frets = Object.values(fretsObj)
-        console.log(frets)
         
         const notes = ["G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#"]
         let strings
@@ -262,7 +259,6 @@ class NoteProvider extends Component {
                     resultNum: this.state.resultNum,
                     songName: this.state.songName,
                     artistName: this.state.artistName,
-
 
                     searchTabs: this.searchTabs,
                     openNewTab: this.openNewTab,

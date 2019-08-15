@@ -13,8 +13,8 @@ const SetList = props => {
 
 
     return(
-        <div>
-            <h1>Setlist</h1>
+        <div className="setlist-container">
+            <h1 className="set-title">Setlist</h1>
             <SavedList {...props}/>
         </div>
     )

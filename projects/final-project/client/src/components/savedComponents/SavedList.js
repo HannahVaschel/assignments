@@ -8,7 +8,7 @@ const SavedList = props => {
                                                     {...tab}
                                                     {...props} />)
     return(
-        <div>
+        <div className="saved-container">
             {mappedSaves}
         </div>
     )

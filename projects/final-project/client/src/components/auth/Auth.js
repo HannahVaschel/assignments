@@ -43,7 +43,7 @@ class Auth extends Component {
     render(){
         const { username, password } = this.state
         return(
-            <div>
+            <div className="auth-container">
                 { !this.state.toggle ?
                     <>
                     <AuthForm 
@@ -53,7 +53,7 @@ class Auth extends Component {
                         handleSubmit={this.handleSignup}
                         btnText="Signup"
                     />
-                    <button onClick={this.toggler}>Already have an account?</button>
+                    <button className="login-toggle" onClick={this.toggler}>Already have an account?</button>
                     <p className="error">{this.props.authErrMsg}</p>
                     </>
                     :
@@ -65,7 +65,7 @@ class Auth extends Component {
                         handleSubmit={this.handleLogin}
                         btnText="Login"
                     />
-                    <button onClick={this.toggler}>or make an Account</button>
+                    <button className="login-toggle" onClick={this.toggler}>or make an Account</button>
                     <p className="error">{this.props.authErrMsg}</p>
                     </>
                 }

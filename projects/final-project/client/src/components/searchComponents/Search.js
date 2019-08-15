@@ -6,7 +6,7 @@ import ResultList from './ResultList.js'
 import SearchSelect from './SearchSelect.js'
 
 const Search = props => {
-    const { openNewTab, exactLink, resultArr, searchTabs, resultNum, songName, artistName, authErrMsg, clearResultCount } = props
+    const { openNewTab,  resultArr, searchTabs, resultNum, authErrMsg, clearResultCount } = props
 
     const [ searchSelect, setSearchSelect ] = useState({ searchSelect: "byGeneral" })
 
@@ -17,17 +17,23 @@ const Search = props => {
     }
     
     return(
-        <div>
-            <SearchSelect value={searchSelect} handleChange={handleSelect}/>
+        <div className="search-container">
+            
             <Form 
                 inputs={{ songName: "", artistName: "", general: "" }}
                 submit={ inputs => searchTabs(inputs) }
                 render={ formProps => <SearchForm {...formProps} searchType={searchSelect} {...props}/>}
             />
-            { resultNum !== "" && <p>{resultNum} results found</p> }
-            { authErrMsg && <p>{authErrMsg}</p> }
-           {/* { exactLink !== "" && <p onClick={() => openNewTab(exactLink)}>{songName} - {artistName}</p> } */}
-          {resultArr.length > 0 && <ResultList {...props}/> }
+            <SearchSelect value={searchSelect} handleChange={handleSelect}/>
+
+            <div className="search-message-div">
+                { resultNum !== "" && <p>{resultNum} results found</p> }
+                { authErrMsg && <p>{authErrMsg}</p> }
+            </div>            
+            <div className="result-container">
+                {/* { exactLink !== "" && <p onClick={() => openNewTab(exactLink)}>{songName} - {artistName}</p> } */}
+                {resultArr.length > 0 && <ResultList {...props}/> }
+            </div>
         </div>
     )
 }

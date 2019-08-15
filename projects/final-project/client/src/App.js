@@ -7,7 +7,7 @@ import Home from './components/homeComponents/Home.js'
 import Search from './components/searchComponents/Search.js'
 import Auth from './components/auth/Auth.js'
 import SetList from './components/savedComponents/SetList.js'
-
+import Footer from './Footer.js'
 
 const App = props => {
     const { token, user, logout } = props
@@ -38,6 +38,7 @@ const App = props => {
                 />
 
             </Switch>
+            <Footer/>
         </div>
     )
 }
