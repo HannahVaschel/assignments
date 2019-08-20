@@ -143,11 +143,15 @@
         flex-direction: column;
     }
     
-    .string {
+    .string, .four-string {
         display: flex;
         flex-direction: row;
-        height: 15%;
-        
+    }
+    .string {
+        height: 15%
+    }
+    .four-string {
+        height: 23%;
     }
     
     .fret, .fret1 {
@@ -279,6 +283,10 @@
         margin-bottom: 0;
         color: #051E36;
     }
+    .result-link:hover {
+        color: #CDC066;
+        cursor: pointer;
+    }
 
     .result-btn {
         border: 2px solid #A69839;
@@ -400,6 +408,10 @@
     .saved-link {
         grid-column: 1 / 5;
         justify-self: start
+    }
+    .saved-link:hover {
+        color: #CDC066;
+        cursor: pointer;
     }
     
     .note-form {

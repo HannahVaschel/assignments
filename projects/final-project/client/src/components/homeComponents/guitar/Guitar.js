@@ -54,7 +54,7 @@ const Guitar = props => {
                 <div className="fret back7">{diagram.s3f6}</div>
                 <div className="fret back7 dotted">{diagram.s3f7}</div>
                 <div className="fret back5">{diagram.s3f8}</div>
-                <div className="fret back5">{diagram.s3f9}</div>
+                <div className="fret back5 dotted">{diagram.s3f9}</div>
                 <div className="fret back5">{diagram.s3f10}</div>
                 <div className="fret back5">{diagram.s3f11}</div>
                 <div className="fret back5 dotted">{diagram.s3f12}</div>
@@ -68,7 +68,7 @@ const Guitar = props => {
                 <div className="fret back7">{diagram.s4f6}</div>
                 <div className="fret back7 dotted">{diagram.s4f7}</div>
                 <div className="fret back5">{diagram.s4f8}</div>
-                <div className="fret back5">{diagram.s4f9}</div>
+                <div className="fret back5 dotted">{diagram.s4f9}</div>
                 <div className="fret back5">{diagram.s4f10}</div>
                 <div className="fret back5">{diagram.s4f11}</div>
                 <div className="fret back5 dotted">{diagram.s4f12}</div>

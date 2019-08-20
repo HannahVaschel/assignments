@@ -173,6 +173,7 @@ class NoteProvider extends Component {
                 this.setState(prevState => ({
                     savedTabs: [...prevState.savedTabs, res.data]
                 }))
+                alert(`Added ${res.data.title} to Setlist`)
             })
             .catch(err => console.log(err))
     }

@@ -55,7 +55,7 @@ const Home = props => {
                     <Form
                         inputs={formInputs}
                         submit={ inputs => tabToNote(inputs, instrument) }
-                        render={ formProps => <components.instForm {...formProps} />}
+                        render={ formProps => <components.instForm {...formProps} test={"test"} />}
                     /> }
               
            

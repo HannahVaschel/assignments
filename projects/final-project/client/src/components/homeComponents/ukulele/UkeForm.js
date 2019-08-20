@@ -7,6 +7,7 @@ const UkeForm = props => {
             <div className="tab-input-div">
                 <input 
                     type="number" 
+                    min="0"
                     name="uAString" 
                     value={uAString} 
                     onChange={handleChange} 
@@ -14,6 +15,7 @@ const UkeForm = props => {
                 />
                 <input 
                     type="number" 
+                    min="0"
                     name="uEString" 
                     value={uEString} 
                     onChange={handleChange} 
@@ -21,6 +23,7 @@ const UkeForm = props => {
                 />
                 <input 
                     type="number" 
+                    min="0"
                     name="uCString" 
                     value={uCString} 
                     onChange={handleChange} 
@@ -28,6 +31,7 @@ const UkeForm = props => {
                 />
                 <input 
                     type="number" 
+                    min="0"
                     name="uGString" 
                     value={uGString} 
                     onChange={handleChange} 

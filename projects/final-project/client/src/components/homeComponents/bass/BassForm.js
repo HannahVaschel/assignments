@@ -7,6 +7,7 @@ const BassForm = props => {
             <div className="tab-input-div">
                 <input 
                     type="number" 
+                    min="0"
                     name="bGString" 
                     value={bGString} 
                     onChange={handleChange} 
@@ -14,6 +15,7 @@ const BassForm = props => {
                 />
                 <input 
                     type="number" 
+                    min="0"
                     name="bDString" 
                     value={bDString} 
                     onChange={handleChange} 
@@ -21,6 +23,7 @@ const BassForm = props => {
                 />
                 <input 
                     type="number" 
+                    min="0"
                     name="bAString" 
                     value={bAString} 
                     onChange={handleChange} 
@@ -28,6 +31,7 @@ const BassForm = props => {
                 />
                 <input 
                     type="number" 
+                    min="0"
                     name="bEString" 
                     value={bEString} 
                     onChange={handleChange} 
